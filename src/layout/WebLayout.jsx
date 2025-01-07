@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NavBer from "../components/NavBer";
 import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -6,24 +6,22 @@ import Loading from "../components/Loading";
 
 const WebLayout = () => {
   const navigation = useNavigation();
-
   const isNavigation = navigation.state === "loading";
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       {isNavigation ? (
-        // Show loader while loading
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen bg-gray-50">
           <Loading />
         </div>
       ) : (
-        <div>
+        <>
           <NavBer />
-          <div className="min-h-[calc(100vh-285px)]">
+          <main className="min-h-[calc(100vh-285px)] bg-white">
             <Outlet />
-          </div>
+          </main>
           <Footer />
-        </div>
+        </>
       )}
     </div>
   );

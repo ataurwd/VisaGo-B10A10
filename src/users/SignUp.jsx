@@ -9,6 +9,7 @@ import { auth } from "../firebase/firebase.init";
 
 const Register = () => {
   const [password, setPassword] = useState(false);
+  
   const { handelRegisterUser, setUser } = useContext(FormContext);
   const navigate = useNavigate();
 

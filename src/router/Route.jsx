@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import VisaDetails from "../components/VisaDetails";
 import LatestVisa from "../components/LatestVisa";
+import Contact from './../pages/Contact';
 
 const Route = () => {
   const route = createBrowserRouter([
@@ -82,6 +83,10 @@ const Route = () => {
           loader: ({ params }) =>
             fetch(`https://visa-ease-server.vercel.app/add-visa/${params.id}`),
         },
+        {
+          path: '/contact', 
+          element: <Contact></Contact>
+        }
       ],
     },
   ]);
