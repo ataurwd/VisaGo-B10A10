@@ -6,7 +6,7 @@ import { ThemeContext } from "../context/Theme";
 const About = () => {
   const {theme} = useContext(ThemeContext)
   return (
-    <div className="flex items-center justify-center p-6">
+    <div className={`flex items-center justify-center p-6 ${theme === 'dark' ? 'bg-themeDatak' : ''}`}>
       <div className="max-w-screen-lg w-full p-8">
         <div className="flex flex-col lg:flex-row">
           {/* Left Side: Heading Text */}

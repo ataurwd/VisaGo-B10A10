@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FaStar } from "react-icons/fa";
+import { ThemeContext } from "../context/Theme";
 
 const reviews = [
   {
@@ -78,9 +79,10 @@ const reviews = [
 ];
 
 const BuyerReview = () => {
+  const {theme} = useContext(ThemeContext)
   return (
-    <div className=" py-10 px-5 md:px-20 rounded-lg w-full">
-      <h2 className="text-3xl font-bold text-center mb-8">
+    <div className={` py-10 px-5 md:px-20 w-full ${theme === 'dark' ? 'bg-themeDatak' : ''}`}>
+      <h2 className={`text-3xl font-bold text-center mb-8 ${theme === 'dark' ? 'text-white': ''}`}>
         What Our Users Say
       </h2>
       <Swiper

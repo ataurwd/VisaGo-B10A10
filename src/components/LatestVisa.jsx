@@ -10,9 +10,9 @@ const LatestVisa = () => {
   
 
   return (
-    <div>
-      <div className="text-center mb-12 lg:w-[60%] mx-auto lg:pt-10 md:mt-8 mt-5 px-5">
-        <h1 className={`text-4xl font-bold mb-4 ${theme == 'light' ? 'text-primary' : 'text-white'}`}>
+    <div className={`${theme === 'dark' ? 'bg-themeDatak' :''}`}>
+      <div className={`text-center mb-12 lg:w-[60%] mx-auto lg:pt-10 md:mt-8 mt-5 px-5 `}>
+        <h1 className={`text-4xl font-bold mb-4 ${theme == 'dark' ? 'text-white' : 'text-primary'}`}>
           <Typewriter
             words={["Explore the Latest Visa Opportunities"]}
             loop={true}

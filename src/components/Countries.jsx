@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/Theme";
 
 const countries = [
   {
@@ -40,8 +41,9 @@ const CountryCard = ({ country }) => (
 );
 
 const CountriesSection = () => {
+    const {theme} = useContext(ThemeContext)
   return (
-    <section className="bg-primary py-16 px-4" style={{backgroundImage: 'url(https://wp2022.kodesolution.com/vizox/wp-content/uploads/2023/01/lines-waves1.png)'}}>
+    <section className={` py-16 px-4 ${theme === 'dark' ? 'bg-themeDatak' : 'bg-primary'}`} style={{backgroundImage: 'url(https://wp2022.kodesolution.com/vizox/wp-content/uploads/2023/01/lines-waves1.png)'}}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h6 className="text-lg text-gray-500 font-semibold uppercase">

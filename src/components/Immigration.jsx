@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/Theme";
 
 const Immigration = () => {
+    const {theme } = useContext(ThemeContext)
   const data = [
     {
         title: "Apply Online Visa",
@@ -19,7 +21,7 @@ const Immigration = () => {
     },
   ];
   return (
-<div className="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3 lg:px-28 md:px-20 md:my-16 my-5 sm:place-items-center">
+<div className={`grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3 lg:px-28 md:px-20 md:py-16 py-5 sm:place-items-center ${theme === 'dark' ? 'bg-themeDatak text-white' : ''}`}>
   {data.map((item, index) => (
     <div key={index} className="flex items-center space-x-4">
       <img

@@ -50,38 +50,43 @@ const NavBer = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to={"/all-visa"}
-              className={({ isActive }) =>
-                isActive ? "text-gray-400 " : "text-black"
-              }
-            >
-              All Visas
-            </NavLink>
-            <NavLink
-              to={"/add-visa"}
-              className={({ isActive }) =>
-                isActive ? "text-gray-400 " : "text-black"
-              }
-            >
-              Add Visa
-            </NavLink>
-            <NavLink
-              to={"/my-added-visa"}
-              className={({ isActive }) =>
-                isActive ? "text-gray-400 " : "text-black"
-              }
-            >
-              My added visas
-            </NavLink>
-            <NavLink
-              to={"/my-visa-application"}
-              className={({ isActive }) =>
-                isActive ? "text-gray-400 " : "text-black"
-              }
-            >
-              My Visa applications
-            </NavLink>
+            {user ? (
+              <>
+                {" "}
+                <NavLink
+                  to={"/add-visa"}
+                  className={({ isActive }) =>
+                    `${isActive ? "text-gray-400" : ""} ${
+                      theme === "dark" ? "text-white" : "text-black"
+                    }`
+                  }
+                >
+                  Add Visa
+                </NavLink>
+                <NavLink
+                  to={"/my-added-visa"}
+                  className={({ isActive }) =>
+                    `${isActive ? "text-gray-400" : ""} ${
+                      theme === "dark" ? "text-white" : "text-black"
+                    }`
+                  }
+                >
+                  My added visas
+                </NavLink>
+                <NavLink
+                  to={"/my-visa-application"}
+                  className={({ isActive }) =>
+                    `${isActive ? "text-gray-400" : ""} ${
+                      theme === "dark" ? "text-white" : "text-black"
+                    }`
+                  }
+                >
+                  My Visa applications
+                </NavLink>
+              </>
+            ) : (
+              <></>
+            )}
             <NavLink
               to={"/Contact"}
               className={({ isActive }) =>
@@ -120,44 +125,53 @@ const NavBer = () => {
           >
             All Visas
           </NavLink>
-          <NavLink
-            to={"/add-visa"}
-            className={({ isActive }) =>
-              `${isActive ? "text-gray-400" : ""} ${
-                theme === "dark" ? "text-white" : "text-black"
-              }`
-            }
-          >
-            Add Visa
-          </NavLink>
-          <NavLink
-            to={"/my-added-visa"}
-            className={({ isActive }) =>
-              `${isActive ? "text-gray-400" : ""} ${
-                theme === "dark" ? "text-white" : "text-black"
-              }`
-            }
-          >
-            My added visas
-          </NavLink>
-          <NavLink
-            to={"/my-visa-application"}
-            className={({ isActive }) =>
-              `${isActive ? "text-gray-400" : ""} ${
-                theme === "dark" ? "text-white" : "text-black"
-              }`
-            }
-          >
-            My Visa applications
-          </NavLink>
-          <NavLink
-            to={"/Contact"}
-            className={({ isActive }) =>
-              isActive ? "text-gray-400 " : "text-black"
-            }
-          >
-            Contact
-          </NavLink>
+          {user ? (
+            <>
+              {" "}
+              <NavLink
+                to={"/add-visa"}
+                className={({ isActive }) =>
+                  `${isActive ? "text-gray-400" : ""} ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`
+                }
+              >
+                Add Visa
+              </NavLink>
+              <NavLink
+                to={"/my-added-visa"}
+                className={({ isActive }) =>
+                  `${isActive ? "text-gray-400" : ""} ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`
+                }
+              >
+                My added visas
+              </NavLink>
+              <NavLink
+                to={"/my-visa-application"}
+                className={({ isActive }) =>
+                  `${isActive ? "text-gray-400" : ""} ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`
+                }
+              >
+                My Visa applications
+              </NavLink>
+            </>
+          ) : (
+            <></>
+          )}
+              <NavLink
+                to={"/contact"}
+                className={({ isActive }) =>
+                  `${isActive ? "text-gray-400" : ""} ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`
+                }
+              >
+                Contact
+              </NavLink>
         </ul>
       </div>
       <div className="navbar-end flex items-center space-x-4">
@@ -214,7 +228,7 @@ const NavBer = () => {
               alt="User"
             />
             <div className="absolute top-12 md:-left-10 -left-28 flex flex-col items-center gap-2 w-40 bg-white p-3 shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-              <h3 className="text-sm font-semibold">{user?.displayName}</h3>
+              <h3 className={`text-sm font-semibold ${theme === 'dark' ? 'text-primary' : ''}`}>{user?.displayName}</h3>
               <button
                 onClick={signOut}
                 className="px-3 py-1 bg-custom-gradient text-white rounded-md text-sm"

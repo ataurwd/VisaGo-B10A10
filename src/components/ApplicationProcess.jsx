@@ -7,8 +7,8 @@ import { ThemeContext } from "../context/Theme";
 const ApplicationProcess = () => {
   const {theme} = useContext(ThemeContext)
   return (
-    <div>
-      <div className="text-center mb-12 lg:w-1/2 mx-auto lg:mt-10 md:mt-8 mt-5 p-3">
+    <div className={`${theme === 'dark' ? 'bg-themeDatak' : ''}`}>
+      <div className="text-center pb-12 lg:w-1/2 mx-auto lg:pt-10 md:pt-8 pt-5 p-3">
         <h1 className={`text-4xl font-bold mb-4 ${theme == 'light' ? 'text-primary' : 'text-white'}`}>
             <Typewriter
               className="text-4xl font-bold mb-4 text-primary"
